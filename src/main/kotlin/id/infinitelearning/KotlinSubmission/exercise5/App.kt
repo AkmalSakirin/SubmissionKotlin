@@ -7,6 +7,7 @@ fun main() {
      * Buat variable dengan nama hero dibawah ini dan isi nilai variable tersebut dengan class Hero
      *
      */
+    val hero = Hero()
 
 
 
@@ -17,7 +18,7 @@ fun main() {
      *
      */
 
-
+    hero.setProfile("Akmal Sakirin", 20, 170)
 
     /**
      * Latihan 3
@@ -25,7 +26,7 @@ fun main() {
      *
      */
 
-
+    hero.profile()
 
     /**
     Challenge:
@@ -36,13 +37,35 @@ fun main() {
     Group 5: jalan 4x, lari 1x, makan 3x, minum 5x, lompat 5x, duduk 3x
     Group 6: jalan 2x, lari 4x, makan 2x, minum 2x, lompat 7x, duduk 4x
     **/
+    val groups = mapOf(
+        "Group 1" to listOf("jalan" to 5, "lari" to 2, "makan" to 3, "minum" to 1, "lompat" to 3, "duduk" to 1),
+        "Group 2" to listOf("jalan" to 2, "lari" to 2, "makan" to 1, "minum" to 3, "lompat" to 1, "duduk" to 2),
+        "Group 3" to listOf("jalan" to 3, "lari" to 1, "makan" to 5, "minum" to 1, "lompat" to 5, "duduk" to 3),
+        "Group 4" to listOf("jalan" to 5, "lari" to 4, "makan" to 4, "minum" to 4, "lompat" to 3, "duduk" to 2),
+        "Group 5" to listOf("jalan" to 4, "lari" to 1, "makan" to 3, "minum" to 5, "lompat" to 5, "duduk" to 3),
+        "Group 6" to listOf("jalan" to 2, "lari" to 4, "makan" to 2, "minum" to 2, "lompat" to 7, "duduk" to 4)
+    )
 
     /**
      * Latihan 4
      * Jalankan aktivitas-aktivitas dengan memanggil fungsi-fungsi sesuai challenge diatas
      *
      */
-
+    for ((group, activities) in groups) {
+        println("========== $group ==========")
+        for ((activity, times) in activities) {
+            repeat(times) {
+                when (activity) {
+                    "jalan" -> hero.jalan()
+                    "lari" -> hero.lari()
+                    "makan" -> hero.makan()
+                    "minum" -> hero.minum()
+                    "lompat" -> hero.lompat()
+                    "duduk" -> hero.duduk()
+                }
+            }
+        }
+    }
 
 
 
@@ -51,6 +74,7 @@ fun main() {
      * Panggil fungsi profile dibawah ini untuk menampilkan status terkini setelah melakukan aktivitas
      *
      */
+    hero.profile()
 
 
 }
